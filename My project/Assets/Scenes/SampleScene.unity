@@ -855,8 +855,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.73, z: 2.08}
-  m_Center: {x: 0, y: -0.29, z: 1.31}
+  m_Size: {x: 1, y: 0.73, z: 3.6}
+  m_Center: {x: 0, y: -0.29, z: 1.51}
 --- !u!136 &992554151
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -948,7 +948,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &992554156
 MonoBehaviour:
@@ -964,7 +964,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleDetectorCollider: {fileID: 0}
   capsuleRigidBody: {fileID: 0}
-  MoveSpeed: 7
+  moveSpeed: 7
+  rotateSpeed: 0.05
+  rotateDelay: 0.8
+  isBlocked: 0
 --- !u!1 &1071305811
 GameObject:
   m_ObjectHideFlags: 0
