@@ -12,6 +12,7 @@ public class Move : MonoBehaviour
     [SerializeField] bool isBlocked = false;//is the character way blocked by an obstacle?
     [SerializeField] bool isRotateDirectionSet = false;
     [SerializeField] int rotateDirection = 1;
+    [SerializeField] float maxMoveSpeed;
  
 
 
@@ -24,8 +25,10 @@ public class Move : MonoBehaviour
     }
     private void FixedUpdate()
     {
-       
-        
+
+        print(capsuleRigidBody.velocity.magnitude);
+        MoveSpeedLimiter(); 
+
         //ABSTRACTION
         MovementMethod();
     }
@@ -51,6 +54,7 @@ public class Move : MonoBehaviour
     }
     void MovementMethod()
     {
+
         if (!isBlocked)
         {
             ConstraintsAllAngels();
@@ -83,7 +87,13 @@ public class Move : MonoBehaviour
         print("torqueing");
     }
 
-    
+    void MoveSpeedLimiter()
+    {
+        if (capsuleRigidBody.velocity.magnitude > maxMoveSpeed)
+        {
+            capsuleRigidBody.velocity = Vector3.ClampMagnitude(capsuleRigidBody.velocity,maxMoveSpeed);
+        }
+    }
 
 
 
