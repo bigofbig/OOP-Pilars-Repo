@@ -1160,7 +1160,7 @@ MonoBehaviour:
   isBlocked: 0
   isRotateDirectionSet: 0
   rotateDirection: 1
-  rotateDirectionDelay: 0
+  maxMoveSpeed: 3
 --- !u!1 &1071305811
 GameObject:
   m_ObjectHideFlags: 0
