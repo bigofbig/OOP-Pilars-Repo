@@ -1156,7 +1156,7 @@ MonoBehaviour:
   capsuleRigidBody: {fileID: 0}
   moveSpeed: 7
   rotateSpeed: 0.05
-  rotateDelay: 0.8
+  rotateDelay: 1
   isBlocked: 0
   isRotateDirectionSet: 0
   rotateDirection: 1

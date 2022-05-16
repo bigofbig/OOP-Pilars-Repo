@@ -13,6 +13,7 @@ public class Move : MonoBehaviour
     [SerializeField] bool isRotateDirectionSet = false;
     [SerializeField] int rotateDirection = 1;
     [SerializeField] float maxMoveSpeed;
+    float stuckCountDown=10;
  
 
 
@@ -25,9 +26,10 @@ public class Move : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        
 
-        print(capsuleRigidBody.velocity.magnitude);
-        MoveSpeedLimiter(); 
+
+       MoveSpeedLimiter(); 
 
         //ABSTRACTION
         MovementMethod();
@@ -50,6 +52,21 @@ public class Move : MonoBehaviour
         Invoke("IsRotateDirectionSetter",rotateDelay);//delayed, to prevent stucking
 
 
+
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+       
+         
+            stuckCountDown -= Time.deltaTime;
+            print(stuckCountDown);
+        if (stuckCountDown < 0)
+        {
+            isBlocked = true;
+            stuckCountDown = 10;
+        }
+        
 
     }
     void MovementMethod()
