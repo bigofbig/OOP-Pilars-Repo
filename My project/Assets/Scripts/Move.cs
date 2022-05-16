@@ -6,13 +6,13 @@ public class Move : MonoBehaviour
 {
     [SerializeField] BoxCollider obstacleDetectorCollider;
     [SerializeField] Rigidbody capsuleRigidBody;
-    [SerializeField] float moveSpeed;
-    [SerializeField] float rotateSpeed;
-    [SerializeField] float rotateDelay;
-    [SerializeField] bool isBlocked = false;//is the character way blocked by an obstacle?
-    [SerializeField] bool isRotateDirectionSet = false;
-    [SerializeField] int rotateDirection = 1;
-    [SerializeField] float maxMoveSpeed;
+    [SerializeField]float moveForce=7;//how much force is added to move the gameobject
+    float rotateSpeed= 0.05f;
+    float rotateDelay=1;
+    bool isBlocked = false;//is the character way blocked by an obstacle?
+    bool isRotateDirectionSet = false;
+    int rotateDirection = 1;
+    [SerializeField] float maxVelocity=3;
     float stuckCountDown=10;
  
 
@@ -87,7 +87,7 @@ public class Move : MonoBehaviour
 
     void MoveForward()
     {
-        capsuleRigidBody.AddRelativeForce(Vector3.forward * moveSpeed);
+        capsuleRigidBody.AddRelativeForce(Vector3.forward * moveForce);
     }//How character Goes forward
     void RotateAround()
     {  
@@ -106,9 +106,9 @@ public class Move : MonoBehaviour
 
     void MoveSpeedLimiter()
     {
-        if (capsuleRigidBody.velocity.magnitude > maxMoveSpeed)
+        if (capsuleRigidBody.velocity.magnitude > maxVelocity)
         {
-            capsuleRigidBody.velocity = Vector3.ClampMagnitude(capsuleRigidBody.velocity,maxMoveSpeed);
+            capsuleRigidBody.velocity = Vector3.ClampMagnitude(capsuleRigidBody.velocity, maxVelocity);
         }
     }
 
