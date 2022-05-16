@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    [SerializeField] BoxCollider obstacleDetectorCollider;
-    [SerializeField] Rigidbody capsuleRigidBody;
-    [SerializeField]float moveForce=7;//how much force is added to move the gameobject
+    BoxCollider obstacleDetectorCollider;
+   [SerializeField]protected Rigidbody capsuleRigidBody;
+   [SerializeField]protected float moveForce=7;//how much force is added to move the gameobject
+   [SerializeField]protected float maxVelocity = 3;
     float rotateSpeed= 0.05f;
     float rotateDelay=1;
+    float stuckCountDown = 10;
+    int rotateDirection = 1;
     bool isBlocked = false;//is the character way blocked by an obstacle?
     bool isRotateDirectionSet = false;
-    int rotateDirection = 1;
-    [SerializeField] float maxVelocity=3;
-    float stuckCountDown=10;
+   
+   
+    
  
 
 
@@ -85,7 +88,7 @@ public class Move : MonoBehaviour
         
     }
 
-    void MoveForward()
+   protected virtual void MoveForward()
     {
         capsuleRigidBody.AddRelativeForce(Vector3.forward * moveForce);
     }//How character Goes forward
