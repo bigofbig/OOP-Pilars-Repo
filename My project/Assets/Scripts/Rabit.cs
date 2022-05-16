@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InheritanceTest : Move
+public class Rabit : Move //INHERITANCE
 {
-    [SerializeField]float jumpForce;
-    [SerializeField]float jumpTimer = 0;
-    [SerializeField]float jumpDelay = 3;
+   [SerializeField]float jumpForce =200;
+   [SerializeField] float jumpDelay = 1;
+   float jumpTimer = 0;
     
+    
+
+    //POLYMORPHISM
     protected override void MoveForward()
     {
+
         maxVelocity = 10;
+        moveForce = 40;
         jumpTimer -= Time.deltaTime;
         if (jumpTimer < 0)
         {
