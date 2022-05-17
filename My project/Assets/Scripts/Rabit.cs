@@ -7,16 +7,27 @@ public class Rabit : Move //INHERITANCE
    [SerializeField]float jumpForce =200;
    [SerializeField] float jumpDelay = 1;
    float jumpTimer = 0;
-    [SerializeField] Animator animator;
+   [SerializeField] Animator animator;//initialized with drag&drop
     
     
 
     //POLYMORPHISM
     protected override void MoveForward()
     {
-        animator.SetBool("isJumping", false);
         maxVelocity = 10;
-        moveForce = 40;
+        moveForce = 100;
+
+        Jumping();
+       
+        
+
+    }
+
+
+    //ABSTRACTION
+    void Jumping()
+    {
+        animator.SetBool("isJumping", false);
         jumpTimer -= Time.deltaTime;
         if (jumpTimer < 0)
         {
@@ -24,15 +35,12 @@ public class Rabit : Move //INHERITANCE
             capsuleRigidBody.AddRelativeForce(Vector3.up * jumpForce);
             capsuleRigidBody.AddRelativeForce(Vector3.forward * moveForce);
             jumpTimer = jumpDelay;
-           
-            
+
+
         }
-       
-        
-       
-        
+
 
     }
- 
+
 
 }

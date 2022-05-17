@@ -8,11 +8,11 @@ public class Move : MonoBehaviour
    [SerializeField]protected Rigidbody capsuleRigidBody;
    [SerializeField]protected float moveForce=7;//how much force is added to move the gameobject
    [SerializeField]protected float maxVelocity = 3;
-    float rotateSpeed= 0.05f;
+    [SerializeField] float rotateSpeed= 0.05f;
     float rotateDelay=1;
-    float stuckCountDown = 10;
+    float stuckCountDown = 5;
     int rotateDirection = 1;
-    bool isBlocked = false;//is the character way blocked by an obstacle?
+    protected bool isBlocked = false;//is the character way blocked by an obstacle?
     bool isRotateDirectionSet = false;
    
    
@@ -22,15 +22,15 @@ public class Move : MonoBehaviour
 
     private void Awake()
     {
-        
 
+        
         obstacleDetectorCollider = GetComponent<BoxCollider>();
         capsuleRigidBody = GetComponent<Rigidbody>();
     }
     private void FixedUpdate()
     {
         
-
+        
 
        MoveSpeedLimiter(); 
 
@@ -41,8 +41,9 @@ public class Move : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
-
+           
             isBlocked = true;
+            StopMoving();
             
         }
 
@@ -67,7 +68,7 @@ public class Move : MonoBehaviour
         if (stuckCountDown < 0)
         {
             isBlocked = true;
-            stuckCountDown = 10;
+            stuckCountDown = 5;
         }
         
 
@@ -114,6 +115,11 @@ public class Move : MonoBehaviour
             capsuleRigidBody.velocity = Vector3.ClampMagnitude(capsuleRigidBody.velocity, maxVelocity);
         }
     }
+    void StopMoving()
+    {
+        float stopDelay = 2;
+        capsuleRigidBody.velocity = Vector3.ClampMagnitude(capsuleRigidBody.velocity, stopDelay);
+    }
 
 
 
@@ -145,5 +151,5 @@ RigidbodyConstraints.FreezeRotationX;
 
 
     }//return 1 or -1
-
+    
 }
