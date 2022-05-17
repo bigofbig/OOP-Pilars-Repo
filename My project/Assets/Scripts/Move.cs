@@ -8,7 +8,7 @@ public class Move : MonoBehaviour
    [SerializeField]protected Rigidbody capsuleRigidBody;
    [SerializeField]protected float moveForce=7;//how much force is added to move the gameobject
    [SerializeField]protected float maxVelocity = 3;
-    [SerializeField] float rotateSpeed= 0.05f;
+   [SerializeField] float rotateSpeed= 0.05f;
     float rotateDelay=1;
     float stuckCountDown = 5;
     int rotateDirection = 1;
@@ -64,7 +64,7 @@ public class Move : MonoBehaviour
        
          
             stuckCountDown -= Time.deltaTime;
-            print(stuckCountDown);
+            
         if (stuckCountDown < 0)
         {
             isBlocked = true;
@@ -93,19 +93,19 @@ public class Move : MonoBehaviour
     {
         capsuleRigidBody.AddRelativeForce(Vector3.forward * moveForce);
     }//How character Goes forward
-    void RotateAround()
+    protected virtual void RotateAround()
     {  
         if (!isRotateDirectionSet) { 
          rotateDirection = RandomDirection();
             isRotateDirectionSet = true;
         }
-        print(rotateDirection);
+       
         
         capsuleRigidBody.constraints =
             RigidbodyConstraints.FreezeRotationZ |
             RigidbodyConstraints.FreezeRotationX;
         capsuleRigidBody.AddRelativeTorque(Vector3.up * rotateSpeed * rotateDirection);
-        print("torqueing");
+        
     }
 
     void MoveSpeedLimiter()
