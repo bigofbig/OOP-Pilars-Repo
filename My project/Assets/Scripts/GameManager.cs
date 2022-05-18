@@ -23,11 +23,7 @@ public class GameManager : MonoBehaviour
         GameObjectSpawner(tree, TreeCount);
 
     }
-    private void Update()
-    {
-
-        
-    }
+ 
     void GameObjectSpawner(GameObject spawnGameObject,int spawnCount)
     {
         
