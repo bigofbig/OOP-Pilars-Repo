@@ -1251,7 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6ecaf74dc258340b9c1d4afc8f4277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rabbit: {fileID: 8110333615746087, guid: d8183c1fd994a1b4ba8f77d685199fe0, type: 3}
+  rabbit: {fileID: 4431824466056087937, guid: 4f0a41407970e5944bb299393483d480, type: 3}
   Fox: {fileID: 6548703725826472608, guid: b5a7273b720534a438062ee0dfcac50d, type: 3}
   Eagle: {fileID: 8110333615746087, guid: d8183c1fd994a1b4ba8f77d685199fe0, type: 3}
   tree: {fileID: 8530374622645930847, guid: c1df018cfa3b5ae439f8a3709b77b1eb, type: 3}

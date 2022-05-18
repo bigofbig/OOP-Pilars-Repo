@@ -8,17 +8,20 @@ public class GameManager : MonoBehaviour
     [SerializeField]GameObject Fox;
     [SerializeField]GameObject Eagle;
     [SerializeField]GameObject tree;
-    int rabbitCount;
-    int FoxCount;
-    int EagleCount;
-    int TreeCount;
-
+    int rabbitCount=8;
+    int FoxCount = 4;
+    int EagleCount = 3;
+    int TreeCount = 0;
+    
 
     private void Start()
     {
-        
-        
-        
+
+        GameObjectSpawner(rabbit, rabbitCount);
+        GameObjectSpawner(Fox, FoxCount);
+        GameObjectSpawner(Eagle, EagleCount);
+        GameObjectSpawner(tree, TreeCount);
+
     }
     private void Update()
     {
@@ -48,12 +51,12 @@ public class GameManager : MonoBehaviour
 
         return randomPos;
     }
-
     Quaternion RandomRotation()
     {
         Quaternion randomRotate = Quaternion.Euler(0, Random.Range(0.0f, 360f),0 );
         return randomRotate;
     }
 
+    
     
 }
