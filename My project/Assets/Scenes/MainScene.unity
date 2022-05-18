@@ -1430,7 +1430,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ancherPoint: {fileID: 1116014591}
-  rotateSpeed: 10
 --- !u!1 &1259064958
 GameObject:
   m_ObjectHideFlags: 0
