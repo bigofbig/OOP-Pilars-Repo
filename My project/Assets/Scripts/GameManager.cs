@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     int rabbitCount=8;
     int FoxCount = 4;
     int EagleCount = 3;
-    int TreeCount = 0;
+    int TreeCount = 5;
     
 
     private void Start()
