@@ -5,10 +5,12 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     [SerializeField]GameObject ancherPoint;//initialized with Drag&drop
-
+    float horizontalInput;
+    [SerializeField]float rotateSpeed;
     private void Update()
     {
-        transform.Rotate(Vector3.up*Time.deltaTime);
+         horizontalInput = Input.GetAxis("Horizontal");
+        transform.Rotate(Vector3.up*Time.deltaTime*horizontalInput*rotateSpeed);
     }
 
 }
