@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]GameObject rabbit;
-    [SerializeField]GameObject Fox;
-    [SerializeField]GameObject Eagle;
-    [SerializeField]GameObject tree;
-    int rabbitCount ;
+    [SerializeField] GameObject rabbit;
+    [SerializeField] GameObject Fox;
+    [SerializeField] GameObject Eagle;
+    [SerializeField] GameObject tree;
+    int rabbitCount;
     int FoxCount;
-    int EagleCount ;
+    int EagleCount;
     int TreeCount;
 
     private void Awake()
@@ -18,9 +19,9 @@ public class GameManager : MonoBehaviour
         SetInputValues();
         SpawnPrefabs();
     }
-  
- 
- 
+
+
+
 
     void SetInputValues()
     {
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
             TreeCount = scriptAddress.treeNumber;
         }
         //using "if" statement to prevent error for when scene is opened individually
-      
+
 
     }
     void SpawnPrefabs()
@@ -44,15 +45,15 @@ public class GameManager : MonoBehaviour
         GameObjectSpawner(tree, TreeCount);
     }
 
-    void GameObjectSpawner(GameObject spawnGameObject,int spawnCount)
+    void GameObjectSpawner(GameObject spawnGameObject, int spawnCount)
     {
-        
+
 
         for (int i = 0; i < spawnCount; i++)
         {
             Instantiate(spawnGameObject, RandomPos(), RandomRotation());
         }
-        
+
 
     }
     Vector3 RandomPos()
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
         float xBoundry = Random.Range(-13, 13);
 
         Vector3 randomPos = new Vector3(xBoundry, 0, zBoundry);
-        
+
 
 
 
@@ -69,8 +70,13 @@ public class GameManager : MonoBehaviour
     }
     Quaternion RandomRotation()
     {
-        Quaternion randomRotate = Quaternion.Euler(0, Random.Range(0.0f, 360f),0 );
+        Quaternion randomRotate = Quaternion.Euler(0, Random.Range(0.0f, 360f), 0);
         return randomRotate;
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }
