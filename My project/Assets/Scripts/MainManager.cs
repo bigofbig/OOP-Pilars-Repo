@@ -51,6 +51,8 @@ public class MainManager : MonoBehaviour
     }
     int m_RabitNumber;//ENCAPSULATION
 
+    string[] sentences = new string[5];
+
     private void Awake()
     {
 
@@ -59,6 +61,13 @@ public class MainManager : MonoBehaviour
 
         mainManagerScript = this;
         DontDestroyOnLoad(gameObject);
+
+
+        
+        sentences[0] = "Too many!!";
+        sentences[1] = "Negative!! Really??";
+        
+
     }
     
     private void Update()
@@ -92,5 +101,7 @@ public class MainManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    
 
 }
