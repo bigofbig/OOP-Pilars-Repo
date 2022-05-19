@@ -53,13 +53,9 @@ public class MainManager : MonoBehaviour
 
     private void Awake()
     {
-        
 
-        if(mainManagerScript != null)
-        {
-            Destroy(gameObject);
-            return;
-        }//singleton
+        Singleton();
+
 
         mainManagerScript = this;
         DontDestroyOnLoad(gameObject);
@@ -84,8 +80,17 @@ public class MainManager : MonoBehaviour
         if (eagleNumberString.text != "") { eagleNumber = int.Parse(eagleNumberString.text); }
         if (foxNumberString.text != "") { foxNumber = int.Parse(foxNumberString.text); }
     }
-     public void StartGame()
+    void Singleton()
+    {
+        if (mainManagerScript != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }//WILL IT WORK?
+    public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
+
 }

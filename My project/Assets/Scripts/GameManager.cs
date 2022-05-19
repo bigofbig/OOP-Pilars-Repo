@@ -15,30 +15,35 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-       
+        SetInputValues();
+        SpawnPrefabs();
+    }
+  
+ 
+ 
+
+    void SetInputValues()
+    {
         if (MainManager.mainManagerScript != null)
         {
-            MainManager scriptAddress = MainManager.mainManagerScript;
-
+            MainManager scriptAddress = MainManager.mainManagerScript;//this line is for shorten
             rabbitCount = scriptAddress.rabitNumber;
             FoxCount = scriptAddress.foxNumber;
             EagleCount = scriptAddress.eagleNumber;
             TreeCount = scriptAddress.treeNumber;
-            
         }
-    }
-    private void Start()
-    {
-     
-        
+        //using "if" statement to prevent error for when scene is opened individually
+      
 
+    }
+    void SpawnPrefabs()
+    {
         GameObjectSpawner(rabbit, rabbitCount);
         GameObjectSpawner(Fox, FoxCount);
         GameObjectSpawner(Eagle, EagleCount);
         GameObjectSpawner(tree, TreeCount);
-
     }
- 
+
     void GameObjectSpawner(GameObject spawnGameObject,int spawnCount)
     {
         
@@ -68,6 +73,4 @@ public class GameManager : MonoBehaviour
         return randomRotate;
     }
 
-    
-    
 }
