@@ -13,13 +13,14 @@ public class MainManager : MonoBehaviour
     [SerializeField] InputField foxNumberString;//Drag&Drop
     [SerializeField] InputField treeNumberString;//Drag&Drop
    
-    [SerializeField]public int eagleNumber;
+    public int eagleNumber;
     int m_EagleNumber;
-    [SerializeField]public int foxNumber;
+    public int foxNumber;
     int m_FoxNumber;
-    [SerializeField]public int treeNumber;
+    public int treeNumber;
+
     int m_TreeNumber;
-    [SerializeField]public int rabitNumber { get { return m_RabitNumber; }
+    public int rabitNumber { get { return m_RabitNumber; }
         set {
             if (value <= 5) { m_RabitNumber = value; }
             if (value > 5) { print("Too many!!"); }
@@ -45,11 +46,12 @@ public class MainManager : MonoBehaviour
     
     private void Update()
     {
-     
-        rabitNumber=int.Parse(rabbitNumberString.text);
-        eagleNumber=int.Parse(eagleNumberString.text);
-        foxNumber=int.Parse(foxNumberString.text);
-        treeNumber=int.Parse(treeNumberString.text);
+
+       
+        if (treeNumberString.text != "") { treeNumber = int.Parse(treeNumberString.text); }
+        if (rabbitNumberString.text != "") { rabitNumber = int.Parse(rabbitNumberString.text);}
+        if(eagleNumberString.text != "") { eagleNumber = int.Parse(eagleNumberString.text); }
+        if(foxNumberString.text != "") { foxNumber = int.Parse(foxNumberString.text); }
 
         
     }
@@ -58,6 +60,9 @@ public class MainManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    void keepthisdatasafe()
+    {
 
+    }
    
 }
