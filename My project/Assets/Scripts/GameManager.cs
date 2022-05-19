@@ -16,7 +16,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        rabbitCount = MainManager.mainManagerScript.rabitNumber;
+        MainManager scriptAddress = MainManager.mainManagerScript;
+        rabbitCount = scriptAddress.rabitNumber;
+        FoxCount = scriptAddress.foxNumber;
+        EagleCount = scriptAddress.eagleNumber;
+        TreeCount = scriptAddress.treeNumber;
+
         GameObjectSpawner(rabbit, rabbitCount);
         GameObjectSpawner(Fox, FoxCount);
         GameObjectSpawner(Eagle, EagleCount);
