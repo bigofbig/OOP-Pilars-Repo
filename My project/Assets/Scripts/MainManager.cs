@@ -18,7 +18,8 @@ public class MainManager : MonoBehaviour
     public int eagleNumber { get { return m_EagleNumber; }
         set
         {
-            if (value <= 5) { m_EagleNumber = value;  }
+            if (value <= 5) { m_EagleNumber = value; isReadyToStart = true; }
+            else { isReadyToStart = false; }
             
             
         }
@@ -26,9 +27,9 @@ public class MainManager : MonoBehaviour
     int m_EagleNumber;//ENCAPSULATION
     public int foxNumber { get { return m_FoxNumber;  }
         set
-        {if (value <= 5) { m_FoxNumber = value;  }
-           
-            
+        {if (value <= 5) { m_FoxNumber = value; isReadyToStart = true; }
+            else { isReadyToStart = false; }
+
 
         }
     }
@@ -37,17 +38,17 @@ public class MainManager : MonoBehaviour
         get {return m_TreeNumber;}
         set
         {
-            if (value <= 5) { m_TreeNumber = value; }
-            
-           
+            if (value <= 5) { m_TreeNumber = value; isReadyToStart = true; }
+            else { isReadyToStart = false; }
+
         }
             }
     int m_TreeNumber;//ENCAPSULATION
     public int rabitNumber { get { return m_RabitNumber;  }
         set {
-            if (value <= 5) { m_RabitNumber = value;  }
-            
-            
+            if (value <= 5) { m_RabitNumber = value; isReadyToStart = true; }
+            else { isReadyToStart = false; }
+
         } 
             
     }
@@ -58,7 +59,11 @@ public class MainManager : MonoBehaviour
     private void Awake()
     {
 
-        Singleton();
+        if (mainManagerScript != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
 
         mainManagerScript = this;
@@ -93,11 +98,7 @@ public class MainManager : MonoBehaviour
     }
     void Singleton()
     {
-        if (mainManagerScript != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+       
     }//WILL IT WORK?
     public void StartGame()
     {
