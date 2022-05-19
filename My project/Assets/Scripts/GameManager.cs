@@ -8,22 +8,28 @@ public class GameManager : MonoBehaviour
     [SerializeField]GameObject Fox;
     [SerializeField]GameObject Eagle;
     [SerializeField]GameObject tree;
-    int rabbitCount;
+    int rabbitCount ;
     int FoxCount;
-    int EagleCount;
+    int EagleCount ;
     int TreeCount;
-    
 
-    private void Start()
+    private void Awake()
     {
-        MainManager scriptAddress = MainManager.mainManagerScript;
-        if (scriptAddress != null)
+       
+        if (MainManager.mainManagerScript != null)
         {
+            MainManager scriptAddress = MainManager.mainManagerScript;
+
             rabbitCount = scriptAddress.rabitNumber;
             FoxCount = scriptAddress.foxNumber;
             EagleCount = scriptAddress.eagleNumber;
             TreeCount = scriptAddress.treeNumber;
+            
         }
+    }
+    private void Start()
+    {
+     
         
 
         GameObjectSpawner(rabbit, rabbitCount);

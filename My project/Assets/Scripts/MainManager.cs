@@ -23,7 +23,7 @@ public class MainManager : MonoBehaviour
     }
 
     int m_EagleNumber;
-    public int foxNumber { get { return foxNumber; }
+    public int foxNumber { get { return m_FoxNumber; }
         set
         {if (value <= 5) { m_FoxNumber = value; }
             if (value > 5) { print("toom many!!"); }
@@ -68,7 +68,7 @@ public class MainManager : MonoBehaviour
     
     private void Update()
     {
-        print(treeNumber);
+       
        
         if(treeNumberString.text != "") { treeNumber = int.Parse(treeNumberString.text); }
         if(rabbitNumberString.text != "") { rabitNumber = int.Parse(rabbitNumberString.text);}
