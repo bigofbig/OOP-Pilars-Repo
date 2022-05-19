@@ -21,8 +21,7 @@ public class MainManager : MonoBehaviour
             if (value < 0) { print("rally! negative??"); }
         }
     }
-
-    int m_EagleNumber;
+    int m_EagleNumber;//ENCAPSULATION
     public int foxNumber { get { return m_FoxNumber; }
         set
         {if (value <= 5) { m_FoxNumber = value; }
@@ -31,7 +30,7 @@ public class MainManager : MonoBehaviour
 
         }
     }
-    int m_FoxNumber;
+    int m_FoxNumber;//ENCAPSULATION
     public int treeNumber {
         get {return m_TreeNumber;}
         set
@@ -41,7 +40,7 @@ public class MainManager : MonoBehaviour
             if (value > 5) { print("Too many!!"); }
         }
             }
-    int m_TreeNumber;
+    int m_TreeNumber;//ENCAPSULATION
     public int rabitNumber { get { return m_RabitNumber; }
         set {
             if (value <= 5) { m_RabitNumber = value; }
@@ -50,7 +49,7 @@ public class MainManager : MonoBehaviour
         } 
             
     }
-    int m_RabitNumber;
+    int m_RabitNumber;//ENCAPSULATION
 
     private void Awake()
     {
@@ -68,23 +67,25 @@ public class MainManager : MonoBehaviour
     
     private void Update()
     {
-       
-       
-        if(treeNumberString.text != "") { treeNumber = int.Parse(treeNumberString.text); }
-        if(rabbitNumberString.text != "") { rabitNumber = int.Parse(rabbitNumberString.text);}
-        if(eagleNumberString.text != "") { eagleNumber = int.Parse(eagleNumberString.text); }
-        if(foxNumberString.text != "") { foxNumber = int.Parse(foxNumberString.text); }
+        //ABSTRACTION
+        ConvertInputsToInt();
 
-        
+
+
+
+
     }
 
-    public void StartGame()
+  
+    void ConvertInputsToInt()
+    {
+        if (treeNumberString.text != "") { treeNumber = int.Parse(treeNumberString.text); }
+        if (rabbitNumberString.text != "") { rabitNumber = int.Parse(rabbitNumberString.text); }
+        if (eagleNumberString.text != "") { eagleNumber = int.Parse(eagleNumberString.text); }
+        if (foxNumberString.text != "") { foxNumber = int.Parse(foxNumberString.text); }
+    }
+     public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
-    void keepthisdatasafe()
-    {
-
-    }
-   
 }
