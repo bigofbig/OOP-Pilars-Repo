@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
-    bool isReadyToStart = false;
+    public static  bool  isReadyToStart = false;
     
     public static MainManager mainManagerScript;
-    [SerializeField] InputField inputNumberString;//Drag&Drop
-    [SerializeField] InputField rabbitNumberString;//Drag&Drop
-    [SerializeField] InputField eagleNumberString;//Drag&Drop
-    [SerializeField] InputField foxNumberString;//Drag&Drop
-    [SerializeField] InputField treeNumberString;//Drag&Drop
+    
+    [SerializeField] InputField rabbitNumberString;
+    [SerializeField] InputField eagleNumberString;
+    [SerializeField] InputField foxNumberString;
+    [SerializeField] InputField treeNumberString;
     
     public int eagleNumber { get { return m_EagleNumber; }
         set
@@ -54,15 +54,29 @@ public class MainManager : MonoBehaviour
     }
     int m_RabitNumber;//ENCAPSULATION
 
-    
+    [SerializeField]InputValues inputValuesScript;
 
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level == 0)
+        {
+            InputFiledInitializer();
+              
+        }
+    }
     private void Awake()
     {
+        
+        InputFiledInitializer();
 
         if (mainManagerScript != null)
         {
             Destroy(gameObject);
             return;
+            treeNumber= 0;
+            eagleNumber= 0;
+            foxNumber= 0;
+            rabitNumber= 0;
         }
 
 
@@ -72,13 +86,14 @@ public class MainManager : MonoBehaviour
 
         
        
-       
+      
        
 
     }
     
     private void Update()
     {
+       
         //ABSTRACTION
         ConvertInputsToInt();
 
@@ -99,14 +114,22 @@ public class MainManager : MonoBehaviour
     void Singleton()
     {
        
-    }//WILL IT WORK?
+    }//WILL IT WORK?No
     public void StartGame()
     {
         if (isReadyToStart == true){ SceneManager.LoadScene(1); }
         
     }
 
-  
+    void InputFiledInitializer()
+    {
+        inputValuesScript = FindObjectOfType<InputValues>();
+
+        rabbitNumberString = inputValuesScript.rabbitInputString;
+        eagleNumberString = inputValuesScript.eagleInputString;
+        foxNumberString = inputValuesScript.foxInputString;
+        treeNumberString = inputValuesScript.treeInputString;
+    }
     
     
 

@@ -1144,6 +1144,8 @@ GameObject:
   - component: {fileID: 1180127729}
   - component: {fileID: 1180127728}
   - component: {fileID: 1180127727}
+  - component: {fileID: 1180127731}
+  - component: {fileID: 1180127732}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1241,6 +1243,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1180127731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180127726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e215694af056544929a5e4e2266c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rabbitInputString: {fileID: 2111698488}
+  eagleInputString: {fileID: 1882050707}
+  foxInputString: {fileID: 842757212}
+  treeInputString: {fileID: 1198442842}
+--- !u!114 &1180127732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180127726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5ad4d9c1e7e684e91041e3ad589fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1198442840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,8 +1734,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1972472745}
-        m_TargetAssemblyTypeName: MainManager, Assembly-CSharp
+      - m_Target: {fileID: 1180127732}
+        m_TargetAssemblyTypeName: StartButtonScript, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -2167,11 +2197,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ce26b4865ede640a3a8106d8829dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputNumberString: {fileID: 2111698488}
-  rabbitNumberString: {fileID: 2111698488}
-  eagleNumberString: {fileID: 1882050707}
-  foxNumberString: {fileID: 842757212}
-  treeNumberString: {fileID: 1198442842}
+  rabbitNumberString: {fileID: 0}
+  eagleNumberString: {fileID: 0}
+  foxNumberString: {fileID: 0}
+  treeNumberString: {fileID: 0}
+  inputValuesScript: {fileID: 0}
 --- !u!4 &1972472746
 Transform:
   m_ObjectHideFlags: 0
