@@ -60,8 +60,13 @@ public class MainManager : MonoBehaviour
     {
         if (level == 0)
         {
+            //ABSTRACTION
             InputFiledInitializer();
-              
+            //ABSTRACTION
+            ResetAnimalsCount();
+
+
+
         }
     }
     private void Awake()
@@ -69,56 +74,29 @@ public class MainManager : MonoBehaviour
         
         InputFiledInitializer();
 
-        if (mainManagerScript != null)
-        {
-            Destroy(gameObject);
-            return;
-            treeNumber= 0;
-            eagleNumber= 0;
-            foxNumber= 0;
-            rabitNumber= 0;
-        }
+        DataPersistent();
 
 
-        mainManagerScript = this;
-        DontDestroyOnLoad(gameObject);
 
 
-        
-       
-      
-       
 
     }
     
     private void Update()
     {
-       
         //ABSTRACTION
         ConvertInputsToInt();
-
-        
-
-
-
     }
 
-  
+ 
+ ///////////////////////////////////
+ 
     void ConvertInputsToInt()
     {
         if (treeNumberString.text != "") { treeNumber = int.Parse(treeNumberString.text); }
         if (rabbitNumberString.text != "") { rabitNumber = int.Parse(rabbitNumberString.text); }
         if (eagleNumberString.text != "") { eagleNumber = int.Parse(eagleNumberString.text); }
         if (foxNumberString.text != "") { foxNumber = int.Parse(foxNumberString.text); }
-    }
-    void Singleton()
-    {
-       
-    }//WILL IT WORK?No
-    public void StartGame()
-    {
-        if (isReadyToStart == true){ SceneManager.LoadScene(1); }
-        
     }
 
     void InputFiledInitializer()
@@ -130,7 +108,27 @@ public class MainManager : MonoBehaviour
         foxNumberString = inputValuesScript.foxInputString;
         treeNumberString = inputValuesScript.treeInputString;
     }
-    
-    
+    void ResetAnimalsCount()
+    {
+        rabitNumber = 0;
+        treeNumber = 0;
+        eagleNumber = 0;
+        foxNumber = 0;
+    }
 
+    void DataPersistent()
+    {
+        if (mainManagerScript != null)
+        {
+            Destroy(gameObject);
+            return;
+
+        }//singleton
+
+
+        mainManagerScript = this;
+        DontDestroyOnLoad(gameObject);
+
+
+    }//DataPersistent between scenes
 }

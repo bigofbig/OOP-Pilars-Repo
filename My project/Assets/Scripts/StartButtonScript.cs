@@ -10,8 +10,5 @@ public class StartButtonScript : MonoBehaviour
         if (MainManager.isReadyToStart == true) { SceneManager.LoadScene(1); }
 
     }
-    private void Update()
-    {
-        
-    }
+   
 }
